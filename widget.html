@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://wdgt.yandex.ru/ns/"  >
+  <head>
+    <meta name="title" content="Hello, World!" />
+    <meta name="description" content="Показывает строку Hello, world!"/>
+
+
+    <script>
+        window.onload = function(){
+
+            document.getElementById('get').addEventListener("click", get);
+
+            function get(evt){
+                evt.preventDefault();
+                let town =  document.getElementById('name').value;
+                if(town){
+                    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&lang=ru&appid=13e5b32f3d5e54970c4e2790c623939e`)
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .then((data) => {
+                            console.log(data);
+                            if(data.cod == '404'){
+                                document.querySelector("#title").innerHTML = data.message;
+                                document.querySelector("#temp").innerHTML = '...';
+                                document.querySelector("#wind").innerHTML = '...';
+                            }else{
+                                document.querySelector("#title").innerHTML = data.name;
+                                document.querySelector("#temp").innerHTML = data.main.temp;
+                                document.querySelector("#wind").innerHTML = data.wind.speed;
+                            }
+                    })
+                }else{
+                    document.querySelector("#title").innerHTML = 'empty field';
+                }
+            }   
+
+        }
+    </script>
+
+
+      <style>
+          .content{
+              width: 100%;
+              max-width: 500px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin: 0 auto;
+              background-color: aquamarine;
+          }
+          .block-info{
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              box-sizing: border-box;
+              padding: 5px;
+          }
+          #title{
+              color:red;
+          }
+      </style>
+
+
+  </head>
+
+  <body style="margin:0">
+    <div class="content">
+        <form id='form'>
+            <input id='name' type="text" placeholder="London">
+            <input id='get' type="submit">
+        </form>
+
+        <div id="title">...</div>
+        <div class="block-info">
+            <div>Temp</div>
+            <div id="temp">...</div>
+        </div>
+        <div class="block-info">
+            <div>Wind</div>
+            <div id="wind">...</div>
+        </div>
+        
+    </div>
+  </body>
+
+
+</html>
