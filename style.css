@@ -1,0 +1,204 @@
+body{
+    background-image: url(img/bg.png);
+    margin: 0;
+    color: white;
+    font-family: "clemente-light";
+    box-sizing: border-box;
+}
+a, input{
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+input.custom-input{
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    padding: 20px;
+    font-size: 20px;
+    outline: none;
+    font-family: "clemente-light";
+}
+input.custom-input::placeholder {
+    color: white;
+    font-family: 'clemente-light';
+ }
+
+
+
+.content{
+    max-width: 1170px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.title{
+    color: #C64444;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 100px;
+    margin-bottom: 125px;
+    font-family: "clemente";
+    font-weight: bold;
+}
+
+.form-block{
+    width: 90%;
+    max-width: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 150px;
+}
+
+.inputs-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3B8590;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 67px 0 46px 0px;
+}
+
+.inputs-block>input{
+    width: 80%;
+}
+
+.form-block_username{
+    border-bottom: 2px solid white;
+}
+
+.form-block_password{
+    margin-bottom: 16px;
+}
+
+.form-block_photo{
+    width: 135px;
+    height: 135px;
+    background-image: url(img/face.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    top: -67px;
+    position: absolute;
+}
+
+.form-block_photo>img{
+    width: 100%;
+}
+
+.submit-input{
+    width: 100%;
+    background: #C64444;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'clemente';
+}
+
+.submit-input:hover{
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background: #099E84;
+}
+
+.forogot-password{
+    font-weight: bold;
+}
+
+
+footer{
+    color: #3B8590;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+footer p{
+    text-align: center;
+}
+
+footer a{
+    color: #3B8590;
+}
+
+footer a:hover{
+    color: #C64444;
+    text-decoration: underline;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-o
+}
+
+
+@media screen and (max-width: 800px){
+    .title{
+        margin-top: 45px;
+        margin-bottom: 100px;
+    }
+    .form-block{
+        margin-bottom: 40px;
+    }
+    input.custom-input{
+        padding: 15px;
+        box-sizing: content-box;
+    }
+    .submit-input{
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .title{
+        font-size: 28px;
+    }
+    .inputs-block{
+        padding-bottom: 21px;
+    }
+    footer{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 375px){
+    .content{
+        padding: 0;
+    }
+    .form-block {
+        width: 100%;
+    }
+    footer{
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .title{
+        font-size: 24px;
+    }
+    footer{
+        font-size: 14px;
+    }
+}
